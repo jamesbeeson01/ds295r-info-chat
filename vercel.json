@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "course_info.md",
+      "excludeFiles": "{node_modules/**,.next/**,.venv/**,tests/**,src/**,scripts/**,public/**,*.png}",
+      "maxDuration": 60
+    }
+  }
+}
