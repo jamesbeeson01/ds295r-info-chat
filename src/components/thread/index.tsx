@@ -90,7 +90,7 @@ function OpenGitHubRepo() {
       <Tooltip>
         <TooltipTrigger asChild>
           <a
-            href="https://github.com/langchain-ai/agent-chat-ui"
+            href="https://github.com/jamesbeeson01/ds295r-info-chat"
             target="_blank"
             className="flex items-center justify-center"
           >
