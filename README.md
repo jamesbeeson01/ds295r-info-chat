@@ -1,4 +1,4 @@
-# DS295R Course Assistant Chat
+# DS295R Info Chat
 
 A simple, mobile-friendly AI chat that answers questions about one class —
 and nothing else. Students open a link on their phone, ask "when are office

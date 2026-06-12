@@ -33,10 +33,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 COURSE_INFO_PATH = REPO_ROOT / "course_info.md"
 
 SYSTEM_PROMPT_TEMPLATE = """\
-You are the course assistant for the class described below. Your sole \
-purpose is to answer questions about this class for its students, who are \
-often on their phones, so keep answers short, direct, and easy to read on \
-a small screen.
+You are a course Q&A chat. Your sole purpose is to answer questions about the college course \
+DS295R Agent Engineering. You are talking to prospective students \
+who have likely opened this chat from their phone after scanning a qr code. \
+Keep answers short, direct, and easy to read on a small screen.
 
 Rules:
 - Answer only from the course information below. If the answer is not \
@@ -50,6 +50,20 @@ the schedule.
 Course information:
 
 {course_info}
+"""
+
+INITIAL_MESSAGE = """\
+This is a Q&A chat for DS295R Agent Engineering. 
+
+Here is some quick information about the course:
+- **Catalog Name**: DS295R — Special Topics in Data Science
+- **Term**: Fall 2026
+- **Where**: STC 152
+- **When**: MWF, 2:00-3:00
+- **Prerequisites**: CSE 110 - Intro to Programming
+- **Brief Description**: Build agents end to end for production environments using LangChain in Python and LangSmith for agent observability.
+
+Go ahead and ask any questions about the course!
 """
 
 
@@ -85,13 +99,15 @@ def _now() -> str:
 
 def _make_thread(thread_id: str | None = None, metadata: dict | None = None) -> dict:
     tid = thread_id or str(uuid.uuid4())
+    # Initialize thread with an AI message for the user
+    initial_raw = {"type": "ai", "content": INITIAL_MESSAGE}
     thread = {
         "thread_id": tid,
         "created_at": _now(),
         "updated_at": _now(),
         "metadata": {"graph_id": ASSISTANT_ID, **(metadata or {})},
         "status": "idle",
-        "values": {},
+        "values": {"messages": [serialize_message(initial_raw)]},
     }
     THREADS[tid] = thread
     return thread
@@ -293,7 +309,7 @@ async def stream_run(thread_id: str, request: Request) -> StreamingResponse:
     )
 
 
-app = FastAPI(title="DS295R Course Assistant API")
+app = FastAPI(title="DS295R Info API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
