@@ -110,6 +110,17 @@ const StreamSession = ({
     },
   });
 
+  // Pre-create a thread on mount (and whenever a new thread is started)
+  // so fetchStateHistory can load the initial welcome message immediately,
+  // instead of waiting for the user's first submit to create one.
+  useEffect(() => {
+    if (threadId) return;
+    streamValue.client.threads
+      .create()
+      .then((thread) => setThreadId(thread.thread_id))
+      .catch(console.error);
+  }, [threadId]);
+
   useEffect(() => {
     checkGraphStatus(apiUrl, apiKey, authScheme).then((ok) => {
       if (!ok) {

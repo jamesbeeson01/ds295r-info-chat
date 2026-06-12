@@ -424,9 +424,8 @@ export function Thread() {
                       handleRegenerate={handleRegenerate}
                     />
                   )}
-                  {isLoading && !firstTokenReceived && (
-                    <AssistantMessageLoading />
-                  )}
+                  {(isLoading && !firstTokenReceived ||
+                    stream.isThreadLoading) && <AssistantMessageLoading />}
                 </>
               }
               footer={
