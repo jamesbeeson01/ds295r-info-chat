@@ -18,6 +18,11 @@
 - **TA**: James Beeson — jamesbeeson@byui.edu
 
 
+## Signup problems
+
+There have been multiple issues preventing students form registering. Those issues should be resolved now, and the name of the course in the catalog is DS295R — Special Topics in Data Science (not Agent Engineering). If you continue to have issues, you can reach out to Brother Chaz Clark — clarkty@byui.edu
+
+
 ## Who is this class for?
 
 Data Science, Computer Science, and Software Engineering majors who are interested in building agents from the ground up using Python and existing LLMs. 
