@@ -25,6 +25,7 @@ from fastapi.responses import StreamingResponse
 from langchain.chat_models import init_chat_model
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_core.runnables import RunnableConfig
 
 ASSISTANT_ID = os.environ.get("ASSISTANT_ID", "agent")
 MODEL_NAME = os.environ.get("GEMINI_MODEL", "gemini-3.1-flash-lite")
@@ -191,7 +192,8 @@ async def run_stream(thread: dict, input_messages: list[dict], run_id: str) -> A
         model = get_model()
         ai_id = str(uuid.uuid4())
         answer = ""
-        async for chunk in model.astream(lc_messages):
+        ls_config = RunnableConfig(metadata={"ls_thread_id": thread["thread_id"]})
+        async for chunk in model.astream(lc_messages, ls_config):
             piece = str(chunk.text)
             if not piece:
                 continue
