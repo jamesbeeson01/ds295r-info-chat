@@ -41,7 +41,7 @@ By consequence, agents take multi-step actions for the user, plan, execute code,
 
 ## What tech stack or framework are we using?
 
-This course focuses on the principles of agent engineering - ones applicable across all stacks and frameworks. The lowest friction way to accomplish that is to teach using one framework that is easy to learn, has significant depth, is fairly industry standard, and has an ecosystem that supports all or most principles in the course. 
+This course focuses on the principles of agent engineering - ones applicable across all stacks and frameworks. The *lowest friction* way to accomplish that is to teach using *one framework* that is easy to learn, has significant depth, is fairly industry standard, and has an ecosystem that supports all or most principles in the course. 
 
 That said, we use **LangChain** with **Python**, along with **LangSmith** and **LangGraph**. Their v1.0 update made it incredibly easy to work with agents, and LangSmith is a highly sought after skill in industry with many powerful features.
 
@@ -109,3 +109,17 @@ It is useful for:
 - supply chain management
 
 To learn more about these use cases, see [this article](https://www.ibm.com/think/topics/ai-agent-use-cases#1580786329) from IBM.
+
+
+## How much will it cost?
+
+Aside from the cost of tuition for a 3 credit course, we use APIs for LLM use, which have some costs per token. Most of our LLM calls will use Gemini, which has a generous free tier. Each student will use their own account to take advantage of these low costs. In the cases where we do pay for models, we default to the most inexpensive models. You are expected to pay less than $10 in token credits for this course.
+
+
+## Why should I learn this?
+
+If it isn't enough to say that agents are cool, useful, and industry-changing for a wide range of tasks, it is also highly sought after in industry. Currently, the AI market has two sides: Those who use AI products and tools proficiently, and those who make AI products and tools. 
+
+For the latter group (the focus of this course), there are currently about 3 open jobs for every qualified candidate, the jobs are taking up to 6 months to fill, and are paying up to $400K. The people who understand the inner complexities of agents and how to make them reliable in production have incredibly high job prospects. That is why this course focuses on *knowing agents deeply* instead of just using them.
+
+You can learn more about that talent gap from [this podcast](https://youtu.be/4cuT-LKcmWs?si=kpp3ltszUD1BeCSa).
