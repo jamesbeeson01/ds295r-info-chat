@@ -192,7 +192,7 @@ async def run_stream(thread: dict, input_messages: list[dict], run_id: str) -> A
         model = get_model()
         ai_id = str(uuid.uuid4())
         answer = ""
-        ls_config = RunnableConfig(metadata={"ls_thread_id": thread["thread_id"]})
+        ls_config = RunnableConfig(metadata={"thread_id": thread["thread_id"]})
         async for chunk in model.astream(lc_messages, ls_config):
             piece = str(chunk.text)
             if not piece:
